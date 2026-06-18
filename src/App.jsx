@@ -56,10 +56,7 @@ export default function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/verify-email" element={<VerifyEmail />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
-          <Route
-  path="/admin/invite/:token"
-  element={<AdminInviteAccept />}
-/>
+          <Route path="/admin/invite/:token" element={<AdminInviteAccept />} />
           <Route path="/register" element={<Registration />} />
           <Route path="/register/organization" element={<Registration />} />
 
