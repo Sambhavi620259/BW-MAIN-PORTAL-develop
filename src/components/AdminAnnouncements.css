@@ -1,0 +1,54 @@
+.admin-announcements .admin-ann-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.admin-ann-body-preview {
+  margin-top: 4px;
+  font-size: 13px;
+  color: #64748b;
+  max-width: 420px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.admin-ann-thumb {
+  width: 72px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 8px;
+  background: #f1f5f9;
+}
+
+.admin-ann-no-banner {
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+.admin-ann-modal {
+  max-width: 520px;
+  width: min(520px, calc(100vw - 32px));
+}
+
+.admin-ann-input {
+  width: 100%;
+  margin-bottom: 12px;
+}
+
+.admin-ann-input--icon {
+  max-width: 80px;
+}
+
+.admin-ann-banner-preview {
+  display: block;
+  width: 100%;
+  max-height: 160px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin: 8px 0 12px;
+  background: #f1f5f9;
+}

@@ -1,0 +1,698 @@
+/* ===== Full-page two-panel registration ===== */
+.registration-page {
+  height: 100vh;
+  min-height: 100vh;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 400px 1fr;
+  background-image: url("/bg-gradient.png");
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* ===== Left branding panel ===== */
+.reg-left-panel {
+  background: linear-gradient(
+    160deg,
+    var(--sidebar-blue) 0%,
+    #244e78 50%,
+    var(--primary) 100%
+  );
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 2rem 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.reg-left-panel::before {
+  content: "";
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(37, 99, 235, 0.2) 0%,
+    transparent 70%
+  );
+  top: -100px;
+  right: -100px;
+  pointer-events: none;
+}
+
+.reg-left-panel::after {
+  content: "";
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(224, 242, 247, 0.1) 0%,
+    transparent 70%
+  );
+  bottom: -60px;
+  left: -60px;
+  pointer-events: none;
+}
+
+.reg-left-top {
+  position: relative;
+  z-index: 1;
+}
+
+.reg-left-top .logo-img {
+  max-width: 120px;
+}
+
+.reg-left-top .logo-brand {
+  font-size: 1.6rem;
+}
+
+.reg-left-top .logo-tagline {
+  color: #fff;
+}
+
+.reg-left-middle {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+.reg-left-title {
+  font-size: 1.75rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin: 0 0 0.5rem;
+  letter-spacing: -0.01em;
+}
+
+.reg-left-desc {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.5;
+  margin: 0 0 2rem;
+}
+
+/* Step indicator on left panel */
+.reg-stepper {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.reg-stepper-item {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.6rem 0;
+  opacity: 0.45;
+  transition: opacity 0.25s ease;
+}
+
+.reg-stepper-item.active {
+  opacity: 1;
+}
+
+.reg-stepper-item.done {
+  opacity: 0.75;
+}
+
+.reg-stepper-dot {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  font-weight: 700;
+  flex-shrink: 0;
+  transition: all 0.25s ease;
+}
+
+.reg-stepper-item.active .reg-stepper-dot {
+  background: var(--primary);
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.3);
+}
+
+.reg-stepper-item.done .reg-stepper-dot {
+  background: var(--green);
+  border-color: var(--green);
+}
+
+.reg-stepper-line {
+  width: 2px;
+  height: 24px;
+  background: rgba(255, 255, 255, 0.15);
+  margin-left: 17px;
+}
+
+.reg-stepper-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.reg-stepper-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.reg-stepper-sub {
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.5);
+  margin-top: 0.1rem;
+}
+
+.reg-left-bottom {
+  position: relative;
+  z-index: 1;
+}
+
+.reg-left-login {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.55);
+  margin: 0;
+}
+
+.reg-left-link {
+  color: var(--bg-gradient-start);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.reg-left-link:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+/* ===== Right form panel ===== */
+.reg-right-panel {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 3rem;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background: var(--white);
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e1 transparent;
+}
+
+.reg-right-panel::-webkit-scrollbar {
+  width: 5px;
+}
+
+.reg-right-panel::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.reg-right-panel::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 10px;
+}
+
+.reg-right-header {
+  margin-bottom: 1.25rem;
+}
+
+.reg-right-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  margin: 0 0 0.3rem;
+}
+
+.reg-right-sub {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.reg-step-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===== Type selector ===== */
+.reg-switch {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.3rem;
+  margin-bottom: 1rem;
+}
+
+.reg-switch-label {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.reg-switch-control {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--white);
+  padding: 0.55rem 0.75rem;
+  transition: border-color 0.15s ease;
+}
+
+.reg-switch-control:focus-within {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.reg-switch-icon {
+  font-size: 1rem;
+}
+
+.reg-switch-select {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 0.875rem;
+  color: var(--text-dark);
+  cursor: pointer;
+}
+
+/* ===== Compact sections (step 0) ===== */
+.reg-section-compact {
+  margin-bottom: 0.85rem;
+}
+
+.reg-section-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--primary);
+  margin: 0 0 0.5rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.reg-section-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.65rem;
+}
+
+.reg-input-block {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.reg-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.reg-input-with-icon {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--white);
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.15rem 0.65rem;
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.reg-input-with-icon:focus-within {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.reg-input-invalid {
+  border-color: #dc2626 !important;
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1) !important;
+}
+
+.reg-input-icon {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  background: #f1f5f9;
+  color: #64748b;
+  flex-shrink: 0;
+  font-size: 0.75rem;
+}
+
+.reg-premium-input {
+  border: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  padding: 0.6rem 0 !important;
+  border-radius: 10px !important;
+  font-size: 0.85rem !important;
+}
+
+.reg-field-error {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #dc2626;
+}
+
+/* ===== Continue / Next button ===== */
+.reg-next-btn {
+  width: 100%;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  border-radius: 10px;
+  margin-top: 0.75rem;
+  letter-spacing: 0.02em;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.reg-next-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.3);
+}
+
+/* ===== KYC upload card (step 1) ===== */
+.kyc-upload-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.25rem;
+  margin-bottom: 1rem;
+  box-shadow: var(--card-shadow);
+}
+
+.kyc-card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.kyc-shield {
+  font-size: 1.75rem;
+}
+
+.kyc-card-title {
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  margin: 0;
+}
+
+.kyc-card-hint {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin: 0.15rem 0 0;
+}
+
+/* File drop area */
+.reg-file-drop-wrapper {
+  margin-top: 0.85rem;
+}
+
+.reg-file-drop {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 1.5rem 1rem;
+  border: 2px dashed var(--bg-gradient-end);
+  border-radius: 12px;
+  background: var(--bg-gradient-start);
+  cursor: pointer;
+  text-align: center;
+  transition:
+    border-color 0.15s ease,
+    background 0.15s ease;
+  position: relative;
+}
+
+.reg-file-drop:hover {
+  border-color: var(--primary);
+  background: #dbeafe;
+}
+
+.reg-file-icon {
+  font-size: 1.75rem;
+}
+
+.reg-file-text {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.reg-file-hint {
+  font-size: 0.72rem;
+  color: #94a3b8;
+}
+
+.reg-file-input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* ===== Terms, errors, success ===== */
+.reg-terms {
+  margin-bottom: 0.75rem;
+  font-size: 0.8125rem;
+  color: var(--text-dark);
+}
+
+.reg-submit-error {
+  padding: 0.65rem 0.85rem;
+  border-radius: 10px;
+  border: 1px solid #fecaca;
+  background: #fef2f2;
+  color: #b91c1c;
+  font-weight: 700;
+  font-size: 0.85rem;
+  margin-bottom: 0.75rem;
+}
+
+.reg-submit-success {
+  padding: 0.65rem 0.85rem;
+  border-radius: 10px;
+  border: 1px solid #bbf7d0;
+  background: #ecfdf5;
+  color: #166534;
+  font-weight: 700;
+  font-size: 0.85rem;
+  margin-bottom: 0.75rem;
+}
+
+/* ===== Navigation row (step 1) ===== */
+.reg-nav-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.reg-back-btn {
+  padding: 0.7rem 1.25rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--white);
+  color: var(--text-dark);
+  cursor: pointer;
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.reg-back-btn:hover {
+  background: #f1f5f9;
+  border-color: var(--primary);
+}
+
+.reg-submit-btn {
+  width: 100%;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  border-radius: 10px;
+  letter-spacing: 0.02em;
+  margin-top: 0.5rem;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    opacity 0.15s ease;
+}
+
+.reg-submit-btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.3);
+}
+
+.reg-submit-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.reg-btn-spinner {
+  width: 14px;
+  height: 14px;
+  border-radius: 999px;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-top-color: #fff;
+  display: inline-block;
+  animation: reg-spin 0.6s linear infinite;
+  margin-right: 0.4rem;
+}
+
+@keyframes reg-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ===== Responsive: Tablet ===== */
+@media (max-width: 1024px) {
+  .registration-page {
+    grid-template-columns: 320px 1fr;
+  }
+
+  .reg-left-title {
+    font-size: 1.4rem;
+  }
+
+  .reg-right-panel {
+    padding: 1.5rem 2rem;
+  }
+}
+
+/* ===== Responsive: Mobile ===== */
+@media (max-width: 768px) {
+  .registration-page {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .reg-left-panel {
+    padding: 1.25rem 1.5rem;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .reg-left-panel::before,
+  .reg-left-panel::after {
+    display: none;
+  }
+
+  .reg-left-middle {
+    flex: 1;
+    justify-content: center;
+  }
+
+  .reg-left-title {
+    font-size: 1.1rem;
+    margin-bottom: 0.15rem;
+  }
+
+  .reg-left-desc,
+  .reg-stepper,
+  .reg-left-bottom {
+    display: none;
+  }
+
+  .reg-right-panel {
+    padding: 1.25rem 1rem;
+    overflow-y: auto;
+  }
+
+  .reg-right-title {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .reg-section-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .reg-left-panel {
+    padding: 1rem;
+  }
+
+  .reg-right-panel {
+    padding: 1rem 0.75rem;
+  }
+
+  .reg-next-btn,
+  .reg-submit-btn,
+  .reg-back-btn,
+  .reg-switch-control,
+  .reg-premium-input {
+    min-height: 44px;
+  }
+}
+
+/* Referral invite link — locked read-only field */
+.reg-referral-input-wrap {
+  position: relative;
+}
+
+.reg-referral-locked {
+  background: #f1f5f9 !important;
+  color: #475569;
+  cursor: not-allowed;
+  padding-right: 2.25rem;
+}
+
+.reg-referral-lock-icon {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.85rem;
+  opacity: 0.75;
+  pointer-events: none;
+  line-height: 1;
+}
+
+.reg-referral-locked-hint {
+  margin: 0.35rem 0 0;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #64748b;
+  line-height: 1.35;
+}
+
+.reg-referral-locked-wrap:focus-within {
+  border-color: #cbd5e1;
+  box-shadow: none;
+}

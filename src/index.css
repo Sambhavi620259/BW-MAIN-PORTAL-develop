@@ -1,0 +1,223 @@
+:root {
+  --bg-gradient-start: #e0f2f7;
+  --bg-gradient-end: #b8d4e3;
+  --primary: #2563eb;
+  --primary-dark: #1d4ed8;
+  --sidebar-blue: #1e3a5f;
+  --sidebar-active: #2d4a6f;
+  --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  --text-dark: #1f2937;
+  --text-muted: #6b7280;
+  --border: #e5e7eb;
+  --white: #ffffff;
+  --orange: #f97316;
+  --purple: #8b5cf6;
+  --teal: #14b8a6;
+  --green: #22c55e;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+img,
+svg,
+video,
+canvas {
+  max-width: 100%;
+  height: auto;
+}
+
+body {
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-image: url("/bg-gradient.png");
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+}
+
+html[data-theme="dark"] body {
+  background-image:
+    radial-gradient(circle at 15% 20%, #1e293b 0%, transparent 45%),
+    radial-gradient(circle at 80% 10%, #1d4ed8 0%, transparent 35%),
+    linear-gradient(160deg, #0b1220 0%, #0f172a 45%, #111827 100%);
+  color: #e5e7eb;
+}
+
+html[data-theme="dark"] .card-container {
+  background: #111827;
+  box-shadow: 0 8px 26px rgba(0, 0, 0, 0.5);
+}
+
+html[data-theme="dark"] .input {
+  background: #0f172a;
+  border-color: #334155;
+  color: #e2e8f0;
+}
+
+html[data-theme="dark"] .input:focus {
+  border-color: #60a5fa;
+  box-shadow: 0 0 0 2px rgba(96, 165, 250, 0.2);
+}
+
+html[data-theme="dark"] .home-card,
+html[data-theme="dark"] .stat-card,
+html[data-theme="dark"] .settings-card {
+  background: linear-gradient(145deg, #0f172a 0%, #111827 100%) !important;
+  border-color: rgba(96, 165, 250, 0.24) !important;
+  box-shadow: 0 10px 28px rgba(2, 6, 23, 0.55) !important;
+}
+
+html[data-theme="dark"] .search-input {
+  background: #0f172a !important;
+  border-color: #334155 !important;
+  color: #e2e8f0 !important;
+}
+
+html[data-theme="dark"] .open-btn {
+  background: #1e293b !important;
+  color: #bfdbfe !important;
+  border-color: #334155 !important;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* Page wrapper - transparent so body background shows */
+.page-gradient {
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+/* White card container */
+.card-container {
+  background: var(--white);
+  border-radius: 16px;
+  box-shadow: var(--card-shadow);
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.625rem 1.25rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  border: none;
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    opacity 0.15s ease;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: var(--white);
+}
+
+.btn-primary:hover {
+  background: var(--primary-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.32);
+}
+
+.btn-primary:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Inputs */
+.input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 0.9375rem;
+  background: var(--white);
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+}
+
+/* Links */
+.link {
+  color: var(--primary);
+  text-decoration: none;
+  font-size: 0.875rem;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+/* Logo default color */
+.logo-brand {
+  color: var(--primary);
+}
+
+@media (max-width: 1024px) {
+  .page-gradient {
+    padding: 1.5rem;
+  }
+
+  .card-container {
+    border-radius: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .page-gradient {
+    padding: 1rem;
+  }
+
+  .btn {
+    min-height: 42px;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-gradient {
+    padding: 0.75rem;
+  }
+
+  .card-container {
+    border-radius: 12px;
+  }
+
+  .btn {
+    min-height: 44px;
+    padding: 0.7rem 1rem;
+  }
+
+  .input {
+    font-size: 0.9rem;
+    padding: 0.7rem 0.85rem;
+  }
+}
